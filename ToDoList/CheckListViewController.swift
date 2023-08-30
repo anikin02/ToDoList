@@ -8,9 +8,17 @@
 import UIKit
 
 class CheckListViewController: UITableViewController {
-
+  
+  var items: [CheckListItem] = [CheckListItem]()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    items.append(CheckListItem(Lable: "Buy big house"))
+    items.append(CheckListItem(Lable: "Buy iPhone"))
+    items.append(CheckListItem(Lable: "Earn a lot of money"))
+    items.append(CheckListItem(Lable: "Earn a money"))
+    items.append(CheckListItem(Lable: "Earn MONEY"))
   }
 
   // MARK: - Table view data source
@@ -20,22 +28,34 @@ class CheckListViewController: UITableViewController {
 //        // #warning Incomplete implementation, return the number of sections
 //        return 0
 //    }
-
+  
+  func configureCheckmark(for cell: UITableViewCell, with item: CheckListItem) {
+    if item.Checked {
+      cell.accessoryType = .checkmark
+    } else {
+      cell.accessoryType = .none
+    }
+  }
+  func configureLable(for cell: UITableViewCell, with item: CheckListItem) {
+    let label = cell.viewWithTag(1000) as! UILabel
+    label.text = item.Lable
+  }
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return items.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "CheckListItem", for: indexPath)
-      
-    let label = cell.viewWithTag(1000) as! UILabel
+    let item = items[indexPath.row]
     
-    label.text = "Earn a lot of money"
-      
+    configureLable(for: cell, with: item)
+    configureCheckmark(for: cell, with: item)
+    
     return cell
   }
   
-  // MARK: - Table view Delegate
+  // MARK: - Table view delegate
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
