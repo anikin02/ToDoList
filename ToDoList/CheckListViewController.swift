@@ -17,12 +17,6 @@ class CheckListViewController: UITableViewController {
   }
 
   // MARK: - Table view data source
-
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
   
   func configureCheckmark(for cell: UITableViewCell, with item: CheckListItem) {
     if item.Checked {
@@ -50,7 +44,7 @@ class CheckListViewController: UITableViewController {
     return cell
   }
   
-  // MARK: - Table view delegate
+  // MARK: - Table view Delegates
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
@@ -68,9 +62,9 @@ class CheckListViewController: UITableViewController {
     tableView.deleteRows(at: indexPaths, with: .automatic)
   }
   
-  // MARK: Actions
+  // MARK: - Actions
   
-  @IBAction func openAddItem() {
+  @IBAction func addItem() {
     let newRowIndex = items.count
     let item = CheckListItem(Lable: "Earn a lot of MONEY")
     items.append(item)
@@ -78,38 +72,4 @@ class CheckListViewController: UITableViewController {
     let indexPaths = [indexPath]
     tableView.insertRows(at: indexPaths, with: .automatic)
   }
-
-  /*
-  // Override to support conditional editing of the table view.
-  override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-      // Return false if you do not want the specified item to be editable.
-      return true
-  }
-  */
-
-  /*
-  // Override to support rearranging the table view.
-  override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-  }
-  */
-
-  /*
-  // Override to support conditional rearranging of the table view.
-  override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-      // Return false if you do not want the item to be re-orderable.
-      return true
-  }
-  */
-
-  /*
-  // MARK: - Navigation
-
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      // Get the new view controller using segue.destination.
-      // Pass the selected object to the new view controller.
-  }
-  */
-
 }
