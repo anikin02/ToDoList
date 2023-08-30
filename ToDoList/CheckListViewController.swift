@@ -13,12 +13,7 @@ class CheckListViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    items.append(CheckListItem(Lable: "Buy big house"))
-    items.append(CheckListItem(Lable: "Buy iPhone"))
-    items.append(CheckListItem(Lable: "Earn a lot of money"))
-    items.append(CheckListItem(Lable: "Earn a money"))
-    items.append(CheckListItem(Lable: "Earn MONEY"))
+    navigationController?.navigationBar.prefersLargeTitles = true
   }
 
   // MARK: - Table view data source
@@ -60,12 +55,22 @@ class CheckListViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     if let cell = tableView.cellForRow(at: indexPath) {
-      if cell.accessoryType == .none {
-        cell.accessoryType = .checkmark
-      } else {
-        cell.accessoryType = .none
-      }
+      let item = items[indexPath.row]
+      item.Checked.toggle()
+      configureCheckmark(for: cell, with: item)
     }
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  // MARK: Actions
+  
+  @IBAction func openAddItem() {
+    let newRowIndex = items.count
+    let item = CheckListItem(Lable: "Earn a lot of MONEY")
+    items.append(item)
+    let indexPath = IndexPath(row: newRowIndex, section: 0)
+    let indexPaths = [indexPath]
+    tableView.insertRows(at: indexPaths, with: .automatic)
   }
 
   /*
