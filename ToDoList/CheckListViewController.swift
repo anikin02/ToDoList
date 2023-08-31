@@ -7,8 +7,7 @@
 
 import UIKit
 
-class CheckListViewController: UITableViewController {
-  
+class CheckListViewController: UITableViewController, AddItemViewControllerDelegate {
   var items: [CheckListItem] = [CheckListItem]()
   
   override func viewDidLoad() {
@@ -16,7 +15,7 @@ class CheckListViewController: UITableViewController {
     navigationController?.navigationBar.prefersLargeTitles = true
   }
 
-  // MARK: - Table view data source
+  // MARK: - Table View Data Source
   
   func configureCheckmark(for cell: UITableViewCell, with item: CheckListItem) {
     if item.Checked {
@@ -40,11 +39,11 @@ class CheckListViewController: UITableViewController {
     
     configureLable(for: cell, with: item)
     configureCheckmark(for: cell, with: item)
-    
+
     return cell
   }
   
-  // MARK: - Table view Delegates
+  // MARK: - Table View Delegates
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
@@ -62,6 +61,17 @@ class CheckListViewController: UITableViewController {
     tableView.deleteRows(at: indexPaths, with: .automatic)
   }
   
+  // MARK: - Add Item ViewController Delegates
+  
+  func addItemViewControllerDidCancel(_ contoller: AddItemViewController) {
+    navigationController?.popViewController(animated: true)
+  }
+  
+  func addItemViewController(_ contoller: AddItemViewController, didFinishAdding item: CheckListItem) {
+    navigationController?.popViewController(animated: true)
+  }
+  
+  
   // MARK: - Actions
   
   @IBAction func addItem() {
@@ -71,5 +81,13 @@ class CheckListViewController: UITableViewController {
     let indexPath = IndexPath(row: newRowIndex, section: 0)
     let indexPaths = [indexPath]
     tableView.insertRows(at: indexPaths, with: .automatic)
+  }
+  
+  // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "AddItem" {
+      let controller = segue.destination as! AddItemViewController
+      controller.delegate = self
+    }
   }
 }

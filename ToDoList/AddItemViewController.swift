@@ -7,10 +7,17 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
+protocol AddItemViewControllerDelegate: AnyObject {
+  func addItemViewControllerDidCancel(_ contoller: AddItemViewController)
+  func addItemViewController(_ contoller: AddItemViewController, didFinishAdding item: CheckListItem)
+}
+
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var saveBarButton: UIBarButtonItem!
+  
+  weak var delegate: AddItemViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,14 +38,16 @@ class AddItemViewController: UITableViewController {
   // MARK: - Actions
   
   @IBAction func cancel() {
-    navigationController?.popViewController(animated: true)
+    delegate?.addItemViewControllerDidCancel(self)
   }
   
   @IBAction func save() {
-    navigationController?.popViewController(animated: true)
+    let item = CheckListItem(Lable: textField.text!)
+    delegate?.addItemViewController(self, didFinishAdding: item)
   }
   
-  // MARK: - Text field Delegates
+  // MARK: - Text Field Delegates
+  
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     let oldText = textField.text!
     let stringRange = Range(range, in: oldText)!
