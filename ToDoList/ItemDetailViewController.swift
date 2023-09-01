@@ -7,20 +7,31 @@
 
 import UIKit
 
-protocol AddItemViewControllerDelegate: AnyObject {
-  func addItemViewControllerDidCancel(_ contoller: AddItemViewController)
-  func addItemViewController(_ contoller: AddItemViewController, didFinishAdding item: CheckListItem)
+protocol ItemDetailViewControllerDelegate: AnyObject {
+  func itemDetailViewControllerDelegateDidCancel(_ contoller: ItemDetailViewController)
+  func itemDetailViewController(_ contoller: ItemDetailViewController, didFinishAdding item: CheckListItem)
+  func itemDetailViewController(_ contoller: ItemDetailViewController, didFinishEditing item: CheckListItem)
 }
 
-class AddItemViewController: UITableViewController, UITextFieldDelegate {
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var saveBarButton: UIBarButtonItem!
   
-  weak var delegate: AddItemViewControllerDelegate?
+  weak var delegate: ItemDetailViewControllerDelegate?
+  
+  var itemToEdit: CheckListItem?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    if let item = itemToEdit {
+      title = "Edit Item"
+      textField.text = item.Lable
+      
+      saveBarButton.isEnabled = true
+    }
+    
     navigationItem.largeTitleDisplayMode = .never
   }
   
@@ -38,12 +49,17 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
   // MARK: - Actions
   
   @IBAction func cancel() {
-    delegate?.addItemViewControllerDidCancel(self)
+    delegate?.itemDetailViewControllerDelegateDidCancel(self)
   }
   
   @IBAction func save() {
-    let item = CheckListItem(Lable: textField.text!)
-    delegate?.addItemViewController(self, didFinishAdding: item)
+    if let item = itemToEdit {
+      item.updateLable(textField.text!)
+      delegate?.itemDetailViewController(self, didFinishEditing: item)
+    } else {
+      let item = CheckListItem(lable: textField.text!)
+      delegate?.itemDetailViewController(self, didFinishAdding: item)
+    }
   }
   
   // MARK: - Text Field Delegates

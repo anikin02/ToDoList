@@ -7,12 +7,16 @@
 
 import Foundation
 
-class CheckListItem {
+class CheckListItem: NSObject {
   var Lable: String
   var Checked: Bool
   
-  init(Lable: String) {
-    self.Lable = Lable
+  init(lable: String) {
+    self.Lable = lable
     self.Checked = false
+  }
+  
+  func updateLable(_ lable: String) {
+    Lable = lable
   }
 }
