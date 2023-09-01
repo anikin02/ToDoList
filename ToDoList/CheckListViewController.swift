@@ -18,10 +18,12 @@ class CheckListViewController: UITableViewController, AddItemViewControllerDeleg
   // MARK: - Table View Data Source
   
   func configureCheckmark(for cell: UITableViewCell, with item: CheckListItem) {
+    let label = cell.viewWithTag(1001) as! UILabel
+    
     if item.Checked {
-      cell.accessoryType = .checkmark
+      label.text = "✓"
     } else {
-      cell.accessoryType = .none
+      label.text = ""
     }
   }
   func configureLable(for cell: UITableViewCell, with item: CheckListItem) {

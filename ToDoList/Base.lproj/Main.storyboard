@@ -16,25 +16,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="CheckListItem" id="iWH-ub-vyc">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.333332061767578"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="CheckListItem" rowHeight="38" id="iWH-ub-vyc">
+                                <rect key="frame" x="0.0" y="50" width="393" height="38"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iWH-ub-vyc" id="Ajl-ae-wSq">
-                                    <rect key="frame" x="0.0" y="0.0" width="349" height="43.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="330.66666666666669" height="38"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpK-zt-A9j">
-                                            <rect key="frame" x="20" y="11" width="335" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ph-N2-fbn">
+                                            <rect key="frame" x="20" y="11" width="19" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <color key="textColor" red="0.96913257090000005" green="0.65764957899999998" blue="0.87791908129999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpK-zt-A9j">
+                                            <rect key="frame" x="40" y="11" width="285" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="XpK-zt-A9j" secondAttribute="bottom" constant="11.33" id="7oF-10-M99"/>
-                                        <constraint firstItem="XpK-zt-A9j" firstAttribute="top" secondItem="Ajl-ae-wSq" secondAttribute="top" constant="11" id="MKe-je-dOz"/>
-                                        <constraint firstAttribute="trailing" secondItem="XpK-zt-A9j" secondAttribute="trailing" constant="-6" id="NKp-hm-YLo"/>
-                                        <constraint firstItem="XpK-zt-A9j" firstAttribute="leading" secondItem="Ajl-ae-wSq" secondAttribute="leading" constant="20" symbolic="YES" id="xFL-Uf-NCn"/>
+                                        <constraint firstAttribute="bottom" secondItem="XpK-zt-A9j" secondAttribute="bottom" constant="9" id="1Im-al-291"/>
+                                        <constraint firstItem="2ph-N2-fbn" firstAttribute="leading" secondItem="Ajl-ae-wSq" secondAttribute="leading" constant="20" symbolic="YES" id="4CK-yx-Voa"/>
+                                        <constraint firstAttribute="bottom" secondItem="2ph-N2-fbn" secondAttribute="bottom" constant="9" id="LsK-ZD-mX8"/>
+                                        <constraint firstItem="XpK-zt-A9j" firstAttribute="leading" secondItem="2ph-N2-fbn" secondAttribute="trailing" constant="1" id="aMy-uT-MuV"/>
+                                        <constraint firstItem="2ph-N2-fbn" firstAttribute="top" secondItem="Ajl-ae-wSq" secondAttribute="top" constant="11" id="eGM-i7-HVG"/>
+                                        <constraint firstItem="XpK-zt-A9j" firstAttribute="top" secondItem="Ajl-ae-wSq" secondAttribute="top" constant="11" id="urI-DO-nxE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.96913257090000005" green="0.65764957899999998" blue="0.87791908129999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
