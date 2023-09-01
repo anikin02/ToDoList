@@ -49,7 +49,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jdq-WF-KBR">
                             <color key="tintColor" red="0.96913257090000005" green="0.65764957899999998" blue="0.87791908129999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="reZ-IV-WAH" kind="show" id="fEb-3D-6u3"/>
+                                <segue destination="reZ-IV-WAH" kind="show" identifier="AddItem" id="fEb-3D-6u3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
