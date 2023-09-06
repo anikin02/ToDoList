@@ -13,6 +13,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.navigationBar.prefersLargeTitles = true
+    loadCheckListItems()
   }
   
   func documentsDirectory() -> URL {
@@ -31,6 +32,19 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
       try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
     } catch {
       print("Error encoding item array: \(error.localizedDescription)")
+    }
+  }
+  
+  func loadCheckListItems() {
+    let path = dataFilePath()
+    
+    if let data = try? Data(contentsOf: path) {
+      let decoder = PropertyListDecoder()
+      do {
+        items = try decoder.decode([CheckListItem].self, from: data)
+      } catch {
+        print("Error decoding item array: \(error.localizedDescription)")
+      }
     }
   }
   
