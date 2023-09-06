@@ -14,7 +14,26 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
     super.viewDidLoad()
     navigationController?.navigationBar.prefersLargeTitles = true
   }
-
+  
+  func documentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+  }
+  
+  func dataFilePath() -> URL {
+    return documentsDirectory().appendingPathComponent("ToDoList.plist")
+  }
+  
+  func saveCheckListItems() {
+    let encoder = PropertyListEncoder()
+    do {
+      let data = try encoder.encode(items)
+      try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+    } catch {
+      print("Error encoding item array: \(error.localizedDescription)")
+    }
+  }
+  
   // MARK: - Table View Data Source
   
   func configureCheckmark(for cell: UITableViewCell, with item: CheckListItem) {
@@ -55,12 +74,14 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
       configureCheckmark(for: cell, with: item)
     }
     tableView.deselectRow(at: indexPath, animated: true)
+    saveCheckListItems()
   }
   
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     items.remove(at: indexPath.row)
     let indexPaths = [indexPath]
     tableView.deleteRows(at: indexPaths, with: .automatic)
+    saveCheckListItems()
   }
   
   // MARK: - Add Item ViewController Delegates
@@ -75,6 +96,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
     let indexPath = IndexPath(row: newRowIndex, section: 0)
     let indexPaths = [indexPath]
     tableView.insertRows(at: indexPaths, with: .automatic)
+    saveCheckListItems()
     
     navigationController?.popViewController(animated: true)
   }
@@ -86,6 +108,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
         configureLable(for: cell, with: item)
       }
     }
+    saveCheckListItems()
     
     navigationController?.popViewController(animated: true)
   }
