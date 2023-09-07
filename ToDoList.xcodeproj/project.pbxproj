@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78169DCC2AA952A500548F72 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78169DCA2AA952A500548F72 /* AllListsViewController.swift */; };
+		78169DD12AA95D7C00548F72 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78169DD02AA95D7C00548F72 /* Checklist.swift */; };
 		7849AB1B2A9F038B007CB573 /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849AB1A2A9F038B007CB573 /* CheckListItem.swift */; };
 		7849AB1D2A9F1E70007CB573 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849AB1C2A9F1E70007CB573 /* ItemDetailViewController.swift */; };
 		78635B9E2A9C45A000480CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78635B9D2A9C45A000480CFC /* AppDelegate.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78169DCA2AA952A500548F72 /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
+		78169DD02AA95D7C00548F72 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		7849AB1A2A9F038B007CB573 /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 		7849AB1C2A9F1E70007CB573 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		78635B9A2A9C45A000480CFC /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,9 +70,11 @@
 				78635BB32A9C55AE00480CFC /* CheckListViewController.swift */,
 				7849AB1C2A9F1E70007CB573 /* ItemDetailViewController.swift */,
 				78635BA32A9C45A000480CFC /* Main.storyboard */,
-				78635BA62A9C45A100480CFC /* Assets.xcassets */,
 				78635BA82A9C45A100480CFC /* LaunchScreen.storyboard */,
+				78635BA62A9C45A100480CFC /* Assets.xcassets */,
 				78635BAB2A9C45A100480CFC /* Info.plist */,
+				78169DCA2AA952A500548F72 /* AllListsViewController.swift */,
+				78169DD02AA95D7C00548F72 /* Checklist.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -146,9 +152,11 @@
 			files = (
 				7849AB1D2A9F1E70007CB573 /* ItemDetailViewController.swift in Sources */,
 				78635B9E2A9C45A000480CFC /* AppDelegate.swift in Sources */,
+				78169DCC2AA952A500548F72 /* AllListsViewController.swift in Sources */,
 				78635BB42A9C55AE00480CFC /* CheckListViewController.swift in Sources */,
 				78635BA02A9C45A000480CFC /* SceneDelegate.swift in Sources */,
 				7849AB1B2A9F038B007CB573 /* CheckListItem.swift in Sources */,
+				78169DD12AA95D7C00548F72 /* Checklist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
