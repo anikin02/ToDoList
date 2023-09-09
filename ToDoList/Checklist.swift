@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+
+class Checklist: NSObject, Codable {
+  var name: String
+  
+  init(name: String) {
+    self.name = name
+  }
+  
+  func updateName(_ name: String) {
+    self.name = name
+  }
+}

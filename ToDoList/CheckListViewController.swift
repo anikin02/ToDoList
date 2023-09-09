@@ -9,11 +9,13 @@ import UIKit
 
 class CheckListViewController: UITableViewController, ItemDetailViewControllerDelegate {
   var items: [CheckListItem] = [CheckListItem]()
+  var checklist: Checklist!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.navigationBar.prefersLargeTitles = true
     loadCheckListItems()
+    title = checklist.name
   }
   
   func documentsDirectory() -> URL {
@@ -53,15 +55,16 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
   func configureCheckmark(for cell: UITableViewCell, with item: CheckListItem) {
     let label = cell.viewWithTag(1001) as! UILabel
     
-    if item.Checked {
+    if item.checked {
       label.text = "✓"
     } else {
       label.text = ""
     }
   }
+  
   func configureLable(for cell: UITableViewCell, with item: CheckListItem) {
     let label = cell.viewWithTag(1000) as! UILabel
-    label.text = item.Lable
+    label.text = item.lable
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,7 +87,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
     tableView.deselectRow(at: indexPath, animated: true)
     if let cell = tableView.cellForRow(at: indexPath) {
       let item = items[indexPath.row]
-      item.Checked.toggle()
+      item.checked.toggle()
       configureCheckmark(for: cell, with: item)
     }
     tableView.deselectRow(at: indexPath, animated: true)

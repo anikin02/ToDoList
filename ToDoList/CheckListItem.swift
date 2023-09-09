@@ -8,15 +8,15 @@
 import Foundation
 
 class CheckListItem: NSObject, Codable {
-  var Lable: String
-  var Checked: Bool
+  var lable: String
+  var checked: Bool
   
   init(lable: String) {
-    self.Lable = lable
-    self.Checked = false
+    self.lable = lable
+    self.checked = false
   }
   
   func updateLable(_ lable: String) {
-    Lable = lable
+    self.lable = lable
   }
 }

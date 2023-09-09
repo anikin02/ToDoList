@@ -1,33 +1,33 @@
 //
-//  AddItemViewController.swift
+//  ListDetailViewController.swift
 //  ToDoList
 //
-//  Created by anikin02 on 30.08.2023.
+//  Created by anikin02 on 08.09.2023.
 //
 
 import UIKit
 
-protocol ItemDetailViewControllerDelegate: AnyObject {
-  func itemDetailViewControllerDelegateDidCancel(_ contoller: ItemDetailViewController)
-  func itemDetailViewController(_ contoller: ItemDetailViewController, didFinishAdding item: CheckListItem)
-  func itemDetailViewController(_ contoller: ItemDetailViewController, didFinishEditing item: CheckListItem)
+protocol ListDetailViewControllerDelegate: AnyObject {
+  func listDetailViewControllerDelegateDidCancel(_ contoller: ListDetailViewController)
+  func listDetailViewController(_ contoller: ListDetailViewController, didFinishAdding list: Checklist)
+  func listDetailViewController(_ contoller: ListDetailViewController, didFinishEditing list: Checklist)
 }
 
-class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
+class ListDetailViewController: UITableViewController, UITextFieldDelegate {
 
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var saveBarButton: UIBarButtonItem!
   
-  weak var delegate: ItemDetailViewControllerDelegate?
+  weak var delegate: ListDetailViewControllerDelegate?
   
-  var itemToEdit: CheckListItem?
+  var listToEdit: Checklist?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if let item = itemToEdit {
-      title = "Edit Item"
-      textField.text = item.lable
+    if let list = listToEdit {
+      title = "Edit Checklist"
+      textField.text = list.name
       
       saveBarButton.isEnabled = true
     }
@@ -49,16 +49,16 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
   // MARK: - Actions
   
   @IBAction func cancel() {
-    delegate?.itemDetailViewControllerDelegateDidCancel(self)
+    delegate?.listDetailViewControllerDelegateDidCancel(self)
   }
   
   @IBAction func save() {
-    if let item = itemToEdit {
-      item.updateLable(textField.text!)
-      delegate?.itemDetailViewController(self, didFinishEditing: item)
+    if let list = listToEdit {
+      list.updateName(textField.text!)
+      delegate?.listDetailViewController(self, didFinishEditing: list)
     } else {
-      let item = CheckListItem(lable: textField.text!)
-      delegate?.itemDetailViewController(self, didFinishAdding: item)
+      let list = Checklist(name: textField.text!)
+      delegate?.listDetailViewController(self, didFinishAdding: list)
     }
   }
   
