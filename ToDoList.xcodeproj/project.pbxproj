@@ -11,6 +11,7 @@
 		78169DD12AA95D7C00548F72 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78169DD02AA95D7C00548F72 /* Checklist.swift */; };
 		7831DEBB2AAB1B8300095E36 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7831DEBA2AAB1B8300095E36 /* ListDetailViewController.swift */; };
 		7831DEBD2AAD9B0500095E36 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7831DEBC2AAD9B0500095E36 /* DataModel.swift */; };
+		7831DEE92AB3FA4A00095E36 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7831DEE82AB3FA4A00095E36 /* README.md */; };
 		7849AB1B2A9F038B007CB573 /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849AB1A2A9F038B007CB573 /* CheckListItem.swift */; };
 		7849AB1D2A9F1E70007CB573 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7849AB1C2A9F1E70007CB573 /* ItemDetailViewController.swift */; };
 		78635B9E2A9C45A000480CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78635B9D2A9C45A000480CFC /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		78169DD02AA95D7C00548F72 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		7831DEBA2AAB1B8300095E36 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		7831DEBC2AAD9B0500095E36 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		7831DEE82AB3FA4A00095E36 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7849AB1A2A9F038B007CB573 /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
 		7849AB1C2A9F1E70007CB573 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		78635B9A2A9C45A000480CFC /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +54,7 @@
 		78635B912A9C45A000480CFC = {
 			isa = PBXGroup;
 			children = (
+				7831DEE82AB3FA4A00095E36 /* README.md */,
 				78635B9C2A9C45A000480CFC /* ToDoList */,
 				78635B9B2A9C45A000480CFC /* Products */,
 			);
@@ -145,6 +148,7 @@
 			files = (
 				78635BAA2A9C45A100480CFC /* LaunchScreen.storyboard in Resources */,
 				78635BA72A9C45A100480CFC /* Assets.xcassets in Resources */,
+				7831DEE92AB3FA4A00095E36 /* README.md in Resources */,
 				78635BA52A9C45A000480CFC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
