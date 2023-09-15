@@ -51,11 +51,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7831DEEA2AB41EBA00095E36 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				7831DEBC2AAD9B0500095E36 /* DataModel.swift */,
+				78169DD02AA95D7C00548F72 /* Checklist.swift */,
+				7849AB1A2A9F038B007CB573 /* CheckListItem.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		7831DEEB2AB41ECF00095E36 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				78169DCA2AA952A500548F72 /* AllListsViewController.swift */,
+				7831DEBA2AAB1B8300095E36 /* ListDetailViewController.swift */,
+				78635BB32A9C55AE00480CFC /* CheckListViewController.swift */,
+				7849AB1C2A9F1E70007CB573 /* ItemDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7831DEEC2AB41EE300095E36 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78635BA32A9C45A000480CFC /* Main.storyboard */,
+				78635BA82A9C45A100480CFC /* LaunchScreen.storyboard */,
+				78635BA62A9C45A100480CFC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		78635B912A9C45A000480CFC = {
 			isa = PBXGroup;
 			children = (
-				7831DEE82AB3FA4A00095E36 /* README.md */,
 				78635B9C2A9C45A000480CFC /* ToDoList */,
+				7831DEE82AB3FA4A00095E36 /* README.md */,
 				78635B9B2A9C45A000480CFC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,19 +102,12 @@
 		78635B9C2A9C45A000480CFC /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				7831DEBC2AAD9B0500095E36 /* DataModel.swift */,
-				78169DD02AA95D7C00548F72 /* Checklist.swift */,
-				7849AB1A2A9F038B007CB573 /* CheckListItem.swift */,
-				78635B9F2A9C45A000480CFC /* SceneDelegate.swift */,
-				78169DCA2AA952A500548F72 /* AllListsViewController.swift */,
-				7831DEBA2AAB1B8300095E36 /* ListDetailViewController.swift */,
-				78635BB32A9C55AE00480CFC /* CheckListViewController.swift */,
-				7849AB1C2A9F1E70007CB573 /* ItemDetailViewController.swift */,
-				78635B9D2A9C45A000480CFC /* AppDelegate.swift */,
-				78635BA32A9C45A000480CFC /* Main.storyboard */,
-				78635BA82A9C45A100480CFC /* LaunchScreen.storyboard */,
-				78635BA62A9C45A100480CFC /* Assets.xcassets */,
+				7831DEEA2AB41EBA00095E36 /* Data Models */,
+				7831DEEB2AB41ECF00095E36 /* View Controllers */,
+				7831DEEC2AB41EE300095E36 /* Resources */,
 				78635BAB2A9C45A100480CFC /* Info.plist */,
+				78635B9D2A9C45A000480CFC /* AppDelegate.swift */,
+				78635B9F2A9C45A000480CFC /* SceneDelegate.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
