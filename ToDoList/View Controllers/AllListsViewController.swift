@@ -44,7 +44,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
       cell.detailTextLabel!.text = "\(uncheckedItems) Remaining"
     }
     cell.accessoryType = .detailDisclosureButton
-    cell.tintColor = UIColor.systemPink // Recolor!!!
 
     return cell
   }

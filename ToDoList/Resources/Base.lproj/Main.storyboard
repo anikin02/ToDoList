@@ -256,6 +256,7 @@
         <segue reference="0gz-OF-kSm"/>
         <segue reference="NHs-D0-Zat"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.96913257090000005" green="0.65764957899999998" blue="0.87791908129999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
