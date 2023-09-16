@@ -14,7 +14,10 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.navigationBar.prefersLargeTitles = true
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.reloadData()
   }
   
   // MARK: - Table View Data Source
@@ -23,9 +26,23 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+    let cell: UITableViewCell!
+    if let temp = tableView.dequeueReusableCell( withIdentifier: cellIdentifier) {
+      cell = temp
+    } else {
+      cell = UITableViewCell( style: .subtitle, reuseIdentifier: cellIdentifier)
+    }
     let checklist = dataModel.lists[indexPath.row]
     cell.textLabel!.text = checklist.name
+    
+    let uncheckedItems = checklist.countUncheckedItems()
+    if checklist.items.isEmpty {
+      cell.detailTextLabel!.text = "No Items"
+    } else if uncheckedItems == 0  {
+      cell.detailTextLabel!.text = "All Done!"
+    } else {
+      cell.detailTextLabel!.text = "\(uncheckedItems) Remaining"
+    }
     cell.accessoryType = .detailDisclosureButton
     cell.tintColor = UIColor.systemPink // Recolor!!!
 
@@ -79,7 +96,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   }
   
   // MARK: - Navigation
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ShowChecklist" {
       let controller = segue.destination as! CheckListViewController

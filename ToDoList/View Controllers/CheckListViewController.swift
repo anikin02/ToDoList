@@ -17,7 +17,6 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
   }
   
   // MARK: - Table View Data Source
-  
   func configureCheckmark(for cell: UITableViewCell, with item: CheckListItem) {
     let label = cell.viewWithTag(1001) as! UILabel
     
@@ -48,7 +47,6 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
   }
   
   // MARK: - Table View Delegates
-  
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     if let cell = tableView.cellForRow(at: indexPath) {
@@ -66,7 +64,6 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
   }
   
   // MARK: - Add Item ViewController Delegates
-  
   func itemDetailViewControllerDelegateDidCancel(_ contoller: ItemDetailViewController) {
     navigationController?.popViewController(animated: true)
   }
