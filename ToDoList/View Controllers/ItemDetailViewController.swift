@@ -17,6 +17,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var saveBarButton: UIBarButtonItem!
+  @IBOutlet weak var shouldRemindSwitch: UISwitch!
+  @IBOutlet weak var datePicker: UIDatePicker!
   
   weak var delegate: ItemDetailViewControllerDelegate?
   
