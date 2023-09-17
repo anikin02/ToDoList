@@ -32,6 +32,12 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
       textField.text = item.lable
       
       saveBarButton.isEnabled = true
+      
+      shouldRemindSwitch.isOn = item.shouldRemind
+      datePicker.date = item.dueDate
+    } else {
+      let nextDay = Date().addingTimeInterval(86400)
+      datePicker.setDate(nextDay, animated: true)
     }
     
     navigationItem.largeTitleDisplayMode = .never
@@ -57,9 +63,13 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
   @IBAction func save() {
     if let item = itemToEdit {
       item.updateLable(textField.text!)
+      item.updateShouldRemind(shouldRemindSwitch.isOn)
+      item.updateDate(datePicker.date)
       delegate?.itemDetailViewController(self, didFinishEditing: item)
     } else {
-      let item = CheckListItem(lable: textField.text!)
+      let item = CheckListItem(lable: textField.text!,
+                               shouldRemind: shouldRemindSwitch.isOn,
+                               dueDate: datePicker.date)
       delegate?.itemDetailViewController(self, didFinishAdding: item)
     }
   }
