@@ -5,6 +5,7 @@
 //  Created by anikin02 on 30.08.2023.
 //
 
+import UserNotifications
 import Foundation
 
 class CheckListItem: NSObject, Codable {
@@ -35,7 +36,27 @@ class CheckListItem: NSObject, Codable {
   }
   
   func scheduleNotification() {
-    if shouldRemind && (dueDate > Date()) {
+    if shouldRemind && dueDate > Date() {
+      let content = UNMutableNotificationContent()
+      content.title = "Reminder:"
+      content.body = lable
+      content.sound = UNNotificationSound.default
+
+      let calendar = Calendar(identifier: .gregorian)
+      let components = calendar.dateComponents(
+        [.year, .month, .day, .hour, .minute], from: dueDate)
+
+      let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+  
+      let request = UNNotificationRequest(
+        identifier: "\(itemID)",
+        content: content,
+        trigger: trigger)
+
+      let center = UNUserNotificationCenter.current()
+      center.add(request)
+
+      print("Scheduled: \(request) for itemID: \(itemID)")
     }
   }
 }
