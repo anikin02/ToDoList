@@ -72,6 +72,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
       let item = CheckListItem(lable: textField.text!,
                                shouldRemind: shouldRemindSwitch.isOn,
                                dueDate: datePicker.date)
+      print("Switcher: \(shouldRemindSwitch.isOn)")
       item.scheduleNotification()
       delegate?.itemDetailViewController(self, didFinishAdding: item)
     }
