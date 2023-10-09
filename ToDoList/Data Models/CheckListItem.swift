@@ -23,6 +23,10 @@ class CheckListItem: NSObject, Codable {
     self.itemID = DataModel.nextChecklistItemID()
   }
   
+  deinit{
+    removeNotification()
+  }
+  
   func updateLable(_ lable: String) {
     self.lable = lable
   }
@@ -37,6 +41,7 @@ class CheckListItem: NSObject, Codable {
   
   func scheduleNotification() {
     removeNotification()
+    
     if shouldRemind && dueDate > Date() {
       let content = UNMutableNotificationContent()
       content.title = "Reminder:"
